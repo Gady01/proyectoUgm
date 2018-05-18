@@ -1,10 +1,11 @@
 @extends('layout')
 @section('content')
 
+<div class="col-md-4">
 		<form method="POST" action="{{route('mantenimiento.update', $manten)}}">
 	{{csrf_field()}}{{ method_field('PUT')}}
 
-<div class="col-md-4">
+
 	<div class="card-header">
                 <h3 class="card-title text-center text-primary">Actualizar Registros</h3>
      </div>
@@ -59,10 +60,10 @@
 
 
 		</form>
-
+</div>
 @stop
 
-</div>
+
 {{-- CODIGO PARA CALENDARIO --}}
 @push('style')
 

@@ -188,11 +188,11 @@ desired
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Gady Alfonso - Web Developer
-                  <small>Member since Dic. 2012</small>
+                  <small>Member since Dic. 2018</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -238,10 +238,10 @@ desired
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/adminlte/dist/img/tec.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Gady Alfonso</p>
+          <p>PC-COMPANY</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -261,10 +261,12 @@ desired
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
+        <li class="header">Acciones:</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('mantenimiento')}}"><i class="fa fa-link"></i> <span>Equipos</span></a></li>
         <li><a href="{{ route('mantenimiento.create')}}"><i class="fa fa-link"></i> <span>Agregar Equipo</span></a></li>
+       
+
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Mantenimiento</span>
             <span class="pull-right-container">
@@ -274,8 +276,23 @@ desired
           <ul class="treeview-menu">
             <li><a href="{{ route('mantenimiento')}}">Lista de Mantenimientos</a></li>
             <li><a href="{{ route('mantenimiento.create')}}">Equipo Nuevo</a></li>
+            
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Tipo de Equipo</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('t_equipo')}}">Lista de Equipos</a></li>
+            <li><a href="{{ route('t_equipo.create')}}">Agregar Equipo</a></li>
+           
+          </ul>
+        </li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -321,7 +338,7 @@ desired
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018 <a href="#">PC-Company</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
