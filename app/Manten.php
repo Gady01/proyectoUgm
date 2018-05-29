@@ -8,4 +8,12 @@ class Manten extends Model
 {
     protected $guarded=[];
     protected $dates = ['fecha_manten'];
+
+
+
+
+    public function equipo()
+    {
+    	return $this->belongsTo(T_equipo::class);
+    }
 }

@@ -183,7 +183,7 @@ desired
               <!-- The user image in the navbar-->
               <img src="/adminlte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Gady Alfonso</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -191,8 +191,9 @@ desired
                 <img src="/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Gady Alfonso - Web Developer
-                  <small>Member since Dic. 2018</small>
+                  {{-- remplazar el usuario --}}
+                 {{ Auth::user()->name }}
+                  <small>{{ Auth::user()->email }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -216,7 +217,18 @@ desired
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                   <a href="{{ route('logout') }}"
+                      class="btn btn-default btn-flat"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      Logout
+                    </a>
+                    <form id="logout-form"
+                     action="{{ route('logout') }}"
+                     method="POST" 
+                     style="display: none;">
+                            {{ csrf_field() }}
+                    </form>
                 </div>
               </li>
             </ul>

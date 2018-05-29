@@ -21,6 +21,7 @@
 		</div>
 
 
+
 		<div class="form-group {{$errors->has('marca') ? 'has-error':''}}">
 			<label>Marca</label>
 			<input 	type="" name="marca"
@@ -52,6 +53,21 @@
 					value="{{ old('n_serie') }}">
 
 			{!! $errors->first('n_serie','<span class="help-block">:message</span>')!!}
+		</div>
+		{{-- lista desplegable de tipio de equipo --}}
+		<div class="form-group  {{$errors->has('pc_id') ? 'has-error':'' }}">
+			<label>Categoria</label>
+			<select name="pc_id"
+					class="form-control select2">
+					<option value="">Selecciona categoria</option>
+					
+					@foreach($tipopc as $pc)
+
+						<option value="{{ $pc->id }}">{{ $pc->nombre }}</option>
+					@endforeach
+					
+			</select>
+			{!! $errors->first('pc_id','<span class="help-block">:message</span>') !!}
 		</div>
 
 		<div class="form-group {{$errors->has('fecha_manten') ? 'has-error':''}}">

@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::group(['middleware'=>'auth'],function(){
+
 Route::get('/mantenimiento','MantenController@index')->name('mantenimiento');
 
 Route::get('/mantenimiento/create','MantenController@create')->name('mantenimiento.create');
@@ -29,3 +32,12 @@ Route::post('/t_equipo','EquipoController@store')->name('t_equipo.store');
 Route::get('/t_equipo/{t_equipo}','EquipoController@edit')->name('t_equipo.edit');
 Route::put('/t_equipo/{t_equipo}','EquipoController@update')->name('t_equipo.update');
 Route::delete('/t_equipo/{t_equipo}','EquipoController@destroy')->name('t_equipo.destroy');
+
+});
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

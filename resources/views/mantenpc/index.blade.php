@@ -12,6 +12,7 @@
 					<thead>
 						<tr>
 							<th>Tipo de pc</th>
+							<th>Jalando</th>
 							<th>Marca</th>
 							<th>Modelo</th>
 							<th>#Serie</th>
@@ -25,6 +26,7 @@
 						@foreach($mantenimientos as $manten)
 						<tr>
 							<td>{{ $manten->t_equipo}}</td>
+							<td>{{ $manten->nombre}}</td>
 							<td>{{ $manten->marca}}</td>
 							<td>{{ $manten->modelo}}</td>
 							<td>{{ $manten->n_serie}}</td>

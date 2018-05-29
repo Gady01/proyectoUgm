@@ -3,22 +3,32 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Manten;
+use App\T_equipo;
+use DB;
 use Illuminate\Http\Request;
 
 class MantenController extends Controller
 {
    public function index()
    {
-   	$mantenimientos=Manten::all();
+      
+      $mante=T_equipo::all();
+      $mantenimientos=Manten::join('t_equipos','mantens.pc_id','=','t_equipos.id')
+                           ->select('t_equipos.nombre','mantens.*')
+                           ->get();
 
-   	return view('mantenpc.index', compact('mantenimientos'));
+      return view('mantenpc.index', compact('mantenimientos','tipopc'));
+
    }
 
 public function create()
    {
    	$proactivos=Manten::all();
 
-   return view('mantenpc.create', compact('proactivos'));
+      $tipopc = T_equipo::all();
+       dd($tipopc);  ver si la variable esta funcionando
+
+   return view('mantenpc.create', compact('proactivos', 'tipopc'));
    }
 public function store(Request $request)
    {
@@ -36,6 +46,7 @@ public function store(Request $request)
    		$proactivos->marca = $request->marca;
    		$proactivos->modelo = $request->modelo;
    		$proactivos->n_serie = $request->n_serie;
+         $proactivos->pc_id = $request->pc_id;
    		$proactivos->fecha_manten = Carbon::parse($request->fecha_manten);
    		$proactivos->save();
    		return redirect('mantenimiento')->with('flash','Equipo registrado correctamente');
